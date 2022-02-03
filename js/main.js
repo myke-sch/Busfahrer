@@ -1,15 +1,10 @@
-function zufaelligeKarte (){
-    let kreuzArrary = [
-        "Kreuz7",
-        "Kreuz8",
-        "Kreuz9",
-        "Kreuz10",
-        "Kreuz11",
-        "Kreuz12",
-        "Kreuz13",
-        "Kreuz14",
-    ];
-    let zufaelligeKarte = kreuzArrary[Math.floor(Math.random()*kreuzArray.length)];
-    document.getElementById("kartendeck").innerHTML = zufaelligeKarte;
 
-}
+let _deck = ["kreuz7", "kreuz8","kreuz9","kreuz10", "kreuzB", "kreuzD", "kreuzK", "kreuzA"];
+kreuz_karte = kreuz_deck[Math.floor(Math.random() * (kreuz_deck.length - 0)) + 0];
+
+console.log(kreuz_karte);
+
+karten_bilder = document.getElementById("kreuz");
+
+karten_bilder.scr =
+
