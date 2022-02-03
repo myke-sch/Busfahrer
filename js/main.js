@@ -1,5 +1,5 @@
 function zufaelligeKarte (){
-    let myArrary = [
+    let kreuzArrary = [
         "Kreuz7",
         "Kreuz8",
         "Kreuz9",
@@ -9,7 +9,7 @@ function zufaelligeKarte (){
         "Kreuz13",
         "Kreuz14",
     ];
-    let randomItem = myArray[Math.floor(Math.random()*myArray.length)];
-    document.getElementById("kartendeck").innerHTML = randomItem;
+    let zufaelligeKarte = kreuzArrary[Math.floor(Math.random()*kreuzArray.length)];
+    document.getElementById("kartendeck").innerHTML = zufaelligeKarte;
 
 }
