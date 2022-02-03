@@ -8,8 +8,8 @@ function zufaelligeKarte (){
         "Kreuz12",
         "Kreuz13",
         "Kreuz14",
-
-
-    ]
+    ];
+    let randomItem = myArray[Math.floor(Math.random()*myArray.length)];
+    document.getElementById("kartendeck").innerHTML = randomItem;
 
 }
