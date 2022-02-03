@@ -10,5 +10,5 @@ function zufaelligeKarte(){
         "Herz 14",
     ];
     let randomItem = herzArray[Math.floor(Math.random()*myArray.length)];
-    document.getElementById("kartendeck").innerHTML = randomItem;
+    document.getElementById("kartendeck").innerHTML = zufaelligeKarte;
 }
