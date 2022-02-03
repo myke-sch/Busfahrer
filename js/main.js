@@ -15,9 +15,15 @@ let karten_deck = ["karo7", "karo8","karo9","karo10", "karoB", "karoD", "karoK",
 
 let deck = [];
 let deck_size = 32;
+let flipped_cards = 0;
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
 
 function changePic() {
-    
+
     deck = karten_mischen(karten_deck)
     console.log(deck);
     showDeck();
@@ -60,7 +66,30 @@ function showDeck(){
     for (let i = 0; i < deck_size; i++) {
 
         let picture = document.createElement("img");
-        picture.src = "/img/" + deck[i] + ".png"
+        picture.src = "/img/" + deck[i] + ".png";
+        picture.onclick = flipCart;
         document.body.appendChild(picture);
     }
 }
+
+function flipCart() {
+    let karte = document.getElementById("karo_bilder");
+    karte.style.transitionDuration = "1.5s";
+
+    async function flip() {
+        karte.style.transform = "rotateY(-90deg)";
+        await sleep(2000);
+        karte.src = "/img/" + deck[flipped_cards] + ".png";
+        await sleep(200);
+        karte.style.transform = "rotateY(0deg)";
+    }
+
+    flip();
+    flipped_cards++;
+
+    /*karte.style.transform = "rotateY(-90deg)";
+    sleep(2000).then(() => { karte.src = "/img/" + deck[0] + ".png"; })
+    karte.style.transform = "rotateY(-90deg)";*/
+
+}
+
