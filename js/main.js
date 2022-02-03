@@ -8,4 +8,4 @@ console.log(karo_karte);
 
 karten_bilder = document.getElementsByClassName("image1");
 
-karten_bilder.src = "img/karo7.png";
+karten_bilder.src = "img/karoA.png";
