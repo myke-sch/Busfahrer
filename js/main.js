@@ -16,6 +16,10 @@ let karten_deck = ["karo7", "karo8","karo9","karo10", "karoB", "karoD", "karoK",
 let deck = [];
 let deck_size = 32;
 let flipped_cards = 0;
+let karteId;
+
+//document.getElementsByClassName("image").style.transitionDuration = "1.5s";
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -64,22 +68,30 @@ function karten_mischen(deck) {  //Fisher-Yates-Verfahren
 function showDeck(){
 
     for (let i = 0; i < deck_size; i++) {
-
         let picture = document.createElement("img");
-        picture.src = "/img/" + deck[i] + ".png";
-        picture.onclick = flipCart;
+        picture.src = "/img/" + "back" + ".png";
+        //picture.onclick = flipCart();
+        picture.ariaLabel = deck[i];
+        picture.setAttribute("class", "image");
+        picture.setAttribute("id", deck[i]);
+        let pic_id = picture.getAttribute("id");
+        picture.onclick = function() {
+            flipCart(pic_id);
+        };
         document.body.appendChild(picture);
     }
 }
 
-function flipCart() {
-    let karte = document.getElementById("karo_bilder");
+function flipCart(clicked_id) {
+    let karte = document.getElementById(clicked_id);
+    //console.log(clicked_id);
+    //console.log(karte);
     karte.style.transitionDuration = "1.5s";
 
     async function flip() {
         karte.style.transform = "rotateY(-90deg)";
         await sleep(2000);
-        karte.src = "/img/" + deck[flipped_cards] + ".png";
+        karte.src = "/img/" + karte.ariaLabel + ".png";
         await sleep(200);
         karte.style.transform = "rotateY(0deg)";
     }
