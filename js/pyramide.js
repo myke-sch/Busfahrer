@@ -1,9 +1,9 @@
 let karten_deck = ["karo7", "karo8","karo9","karo10", "karoB", "karoD", "karoK", "karoA", "Kreuz7",
     "kreuz8", "kreuz9", "kreuz10", "kreuzB", "kreuzD", "kreuzK", "kreuzA", "herz7", "herz8", "herz9", "herz10", "herzB",
     "herzD", "herzK", "herzA", "pik7", "pik8", "pik9", "pik10", "pikB", "pikD", "pikK", "pikA"];
-//deck = [];
+deck = [];
 
-import deck from './main';
+//import deck from './main';
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -35,7 +35,7 @@ function changePic() {
 
 function pyramideZiehen() {
     let reihePyramide = 0;
-   // deck = karten_mischen(karten_deck)
+    deck = karten_mischen(karten_deck)
     console.log(deck);
     for (let i = 9; i >= 0; i--) {
         let picture = document.createElement("img");

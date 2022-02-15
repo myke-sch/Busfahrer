@@ -18,9 +18,7 @@ let deck_size = 32;
 let flipped_cards = 0;
 let karteId;
 
-export default {
-    value: deck
-};
+
 
 console.log(deck.value);
 //document.getElementsByClassName("image").style.transitionDuration = "1.5s";
