@@ -86,11 +86,11 @@ function flipCart(clicked_id) {
     let karte = document.getElementById(clicked_id);
     //console.log(clicked_id);
     //console.log(karte);
-    karte.style.transitionDuration = "1.5s";
+    karte.style.transitionDuration = "0.75s";
 
     async function flip() {
         karte.style.transform = "rotateY(-90deg)";
-        await sleep(2000);
+        await sleep(1000);
         karte.src = "/img/" + karte.ariaLabel + ".png";
         await sleep(200);
         karte.style.transform = "rotateY(0deg)";
