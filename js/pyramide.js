@@ -1,7 +1,7 @@
 let karten_deck = ["karo7", "karo8","karo9","karo10", "karoB", "karoD", "karoK", "karoA", "Kreuz7",
     "kreuz8", "kreuz9", "kreuz10", "kreuzB", "kreuzD", "kreuzK", "kreuzA", "herz7", "herz8", "herz9", "herz10", "herzB",
     "herzD", "herzK", "herzA", "pik7", "pik8", "pik9", "pik10", "pikB", "pikD", "pikK", "pikA"];
-let deck_import = require("main.js");
+
 console.log(deck_import);
 
 //import deck from './main';
@@ -68,6 +68,9 @@ function pyramideZiehen() {
             console.log(i);
         }
     }
+    deck.shift();
+    localStorage.clear();
+    localStorage.setItem("karten", JSON.stringify(deck));
 }
 
 function flipCart(clicked_id) {
