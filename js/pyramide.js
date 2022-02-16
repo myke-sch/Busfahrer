@@ -1,7 +1,8 @@
 let karten_deck = ["karo7", "karo8","karo9","karo10", "karoB", "karoD", "karoK", "karoA", "Kreuz7",
     "kreuz8", "kreuz9", "kreuz10", "kreuzB", "kreuzD", "kreuzK", "kreuzA", "herz7", "herz8", "herz9", "herz10", "herzB",
     "herzD", "herzK", "herzA", "pik7", "pik8", "pik9", "pik10", "pikB", "pikD", "pikK", "pikA"];
-deck = [];
+let deck_import = require("main.js");
+console.log(deck_import);
 
 //import deck from './main';
 
@@ -28,14 +29,16 @@ function karten_mischen(deck) {  //Fisher-Yates-Verfahren
 
 function changePic() {
 
-    deck = karten_mischen(karten_deck)
+    //deck = karten_mischen(karten_deck)
+
     console.log(deck);
 
 }
 
 function pyramideZiehen() {
     let reihePyramide = 0;
-    deck = karten_mischen(karten_deck)
+    console.log(JSON.parse(localStorage.getItem("karten")));
+    deck = JSON.parse(localStorage.getItem("karten"));
     console.log(deck);
     for (let i = 9; i >= 0; i--) {
         let picture = document.createElement("img");

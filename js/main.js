@@ -18,7 +18,9 @@ let deck_size = 32;
 let flipped_cards = 0;
 let karteId;
 
-
+module.exports = {
+    deck
+}
 
 console.log(deck.value);
 //document.getElementsByClassName("image").style.transitionDuration = "1.5s";
@@ -32,6 +34,7 @@ function sleep(ms) {
 function changePic() {
 
     deck = karten_mischen(karten_deck)
+    localStorage.setItem("karten", JSON.stringify(deck));
     console.log(deck);
     showDeck();
 
@@ -100,6 +103,9 @@ function flipCart(clicked_id) {
     }
 
     flip();
+    deck.shift();
+    localStorage.clear();
+    localStorage.setItem("karten", JSON.stringify(deck));
     flipped_cards++;
 
     /*karte.style.transform = "rotateY(-90deg)";
