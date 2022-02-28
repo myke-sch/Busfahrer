@@ -19,7 +19,7 @@ let aktiverSpieler = 1;
 window.onload = function() {
     document.getElementById("round").innerHTML += round;
     deck = karten_mischen(karten_deck);
-    game();
+    eingabeÜberprüfen();
     anzahlSpieler();
 };
 
@@ -58,6 +58,35 @@ function game(){
 
 
 }
+
+function eingabeÜberprüfen() {
+    let btn1 = document.getElementById("btn1"); //Schwarz
+    let btn2 = document.getElementById("btn2");
+
+    btn1.addEventListener("click", () => {
+        if (round === 1) {
+            round1();
+        }
+        else if (round === 2){
+            round2();
+        }
+
+    });
+
+    btn2.addEventListener("click", () => {
+        if (round === 1) {
+            round1();
+        }
+        else if (round === 2){
+            round2();
+        }
+    });
+
+}
+
+
+
+
 //Farbe
 function round1(){
     if (round != 1) return;
@@ -121,10 +150,10 @@ function round2(){
         //document.getElementById("herz9").ariaLabel.match(/\d+/)[0]
         if(document.getElementById(`player${aktiverSpieler}_img${round - 1}`).ariaLabel.match(/\d+/)[0] > document.getElementById(`player${aktiverSpieler}_img${round}`).ariaLabel.match(/\d+/)[0]) {
             console.log(document.getElementById(`player${aktiverSpieler}_img${round - 1}`).ariaLabel.match(/\d+/)[0], document.getElementById(`player${aktiverSpieler}_img${round}`).ariaLabel.match(/\d+/)[0]);
-            document.getElementById("game_message").innerHTML = "Verteile 1 Schluck"
+            document.getElementById("game_message").innerHTML = "Verteile 1 Schluck";
         }
         else {
-            document.getElementById("game_message").innerHTML = "Trinke 1 Schluck"
+            document.getElementById("game_message").innerHTML = "Trinke 1 Schluck";
         }
         //showCard();
         karteSpeichern();
@@ -197,7 +226,6 @@ function karteSpeichern(){
             spieler_karte.ariaLabel = deck[0];
             spieler_karte.setAttribute("id", `player${aktiverSpieler}_img${round}`);
             document.getElementById("player1").appendChild(spieler_karte);
-            round2();
             break;
         case 2:
             let spieler_karte2 = document.createElement("img");
