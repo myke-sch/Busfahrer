@@ -8,10 +8,11 @@ let herzArray = ["Herz 7", "Herz 8", "Herz 9", "Herz 10", "Herz 11", "Herz 12", 
 ];
 let pik_deck = ["pik7", "pik8", "pik9", "pik10", "pikB", "pikD", "pikK", "pikA"];
 
-let karten_deck = ["karo7", "karo8","karo9","karo10", "karoB", "karoD", "karoK", "karoA", "Kreuz7",
-    "kreuz8", "kreuz9", "kreuz10", "kreuzB", "kreuzD", "kreuzK", "kreuzA", "herz7", "herz8", "herz9", "herz10", "herzB",
-    "herzD", "herzK", "herzA", "pik7", "pik8", "pik9", "pik10", "pikB", "pikD", "pikK", "pikA"];
+let karten_deck = ["karo7", "karo8","karo9","karo10", "karo11", "karo12", "karo13", "karo14", "Kreuz7",
+    "kreuz8", "kreuz9", "kreuz10", "kreuz11", "kreuz12", "kreuz13", "kreuz14", "herz7", "herz8", "herz9", "herz10", "herz11",
+    "herz12", "herz13", "herz14", "pik7", "pik8", "pik9", "pik10", "pik11", "pik12", "pik13", "pik14"];
 
+//B = 11, D = 12, K = 13, A = 14
 
 let deck = [];
 let deck_size = 32;

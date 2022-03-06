@@ -1,14 +1,14 @@
 let round = 1;
-let karten_deck = ["karo7", "karo8","karo9","karo10", "karo11", "karo12", "karo13", "karo14", "Kreuz7",
-    "kreuz8", "kreuz9", "kreuz10", "kreuz11", "kreuz12", "kreuz13", "kreuz14", "herz7", "herz8", "herz9", "herz10", "herz11",
-    "herz12", "herz13", "herz14", "pik7", "pik8", "pik9", "pik10", "pik11", "pik12", "pik13", "pik14"];
+let karten_deck = ["karo7", "karo8","karo9","karo10", "karoB", "karoD", "karoK", "karoA", "Kreuz7",
+    "kreuz8", "kreuz9", "kreuz10", "kreuzB", "kreuzD", "kreuzK", "kreuzA", "herz7", "herz8", "herz9", "herz10", "herzB",
+    "herzD", "herzK", "herzA", "pik7", "pik8", "pik9", "pik10", "pikB", "pikD", "pikK", "pikA"];
 
 
 
-let red_cards = ["karo7", "karo8","karo9","karo10", "karo11", "karo12", "karo13", "karo14", "herz7", "herz8", "herz9", "herz10", "herz11",
-    "herz12", "herz13", "herz14"];
+let red_cards = ["karo7", "karo8","karo9","karo10", "karoB", "karoD", "karoK", "karoA", "herz7", "herz8", "herz9", "herz10", "herzB",
+    "herzD", "herzK", "herzA"];
 let black_cards = ["Kreuz7",
-    "kreuz8", "kreuz9", "kreuz10", "kreuz11", "kreuz12", "kreuz13", "kreuz14", "pik7", "pik8", "pik9", "pik10", "pik11", "pik12", "pik13", "pik14"];
+    "kreuz8", "kreuz9", "kreuz10", "kreuzB", "kreuzD", "kreuzK", "kreuzA", "pik7", "pik8", "pik9", "pik10", "pikB", "pikD", "pikK", "pikA"];
 
 let deck = [];
 let deck_size = 32;
@@ -69,7 +69,7 @@ function eingabeÜberprüfen() {
             round1();
         }
         else if (round === 2){
-            round2_1();
+            round2();
         }
 
     });
@@ -79,7 +79,7 @@ function eingabeÜberprüfen() {
             round1();
         }
         else if (round === 2){
-            round2_2();
+            round2();
         }
     });
 
@@ -93,108 +93,105 @@ function round1(){
     if (round != 1) return;
     let btn1 = document.getElementById("btn1"); //Schwarz
     let btn2 = document.getElementById("btn2"); //Rot
-    karteSpeichern();
     console.log(deck);
-    if(black_cards.includes(deck[0])) {
+    btn1.addEventListener("click", () => {
+        if(black_cards.includes(deck[0])) {
             document.getElementById("game_message").innerHTML = "Verteile 1 Schluck"
-    }
-    else {
+        }
+        else {
             document.getElementById("game_message").innerHTML = "Trinke 1 Schluck"
-    }
+        }
         //showCard();
-
-    karteZiehen();
-    if (aktiverSpieler >= spieler) {
-        aktiverSpieler = 1;
-        naechsteRunde();
-        round++;
-    }
-    else {
-        aktiverSpieler++;
-    }
-
-    }
-
-
-    if(red_cards.includes(deck[0])) {
-            document.getElementById("game_message").innerHTML = "Verteile 1 Schluck"
-    }
-    else {
-        document.getElementById("game_message").innerHTML = "Trinke 1 Schluck"
-    }
-        //showCard();
-karteSpeichern();
-    karteZiehen();
-    if (aktiverSpieler >= spieler) {
-        aktiverSpieler = 1;
-        naechsteRunde();
-        round++;
-    }
-    else {
-        aktiverSpieler++;
-
-}
-
-//Höher
-function round2_1(){
-    console.log(deck);
-    karteSpeichern();
-    console.log("Runde 2 1");
-    //Ass, Bube, Dame, König muss noch überprüft werden
-    //document.getElementById("herz9").ariaLabel.match(/\d+/)[0]
-
-    let card1 = document.getElementById(`player${aktiverSpieler}_img${round - 1}`).ariaLabel.match(/\d+/)[0];
-    let card2 = document.getElementById(`player${aktiverSpieler}_img${round}`).ariaLabel.match(/\d+/)[0];
-
-    if (parseInt(card1) < parseInt(card2)) {
-        console.log(document.getElementById(`player${aktiverSpieler}_img${round - 1}`).ariaLabel.match(/\d+/)[0], document.getElementById(`player${aktiverSpieler}_img${round}`).ariaLabel.match(/\d+/)[0]);
-        console.log("war richtig");
-        document.getElementById("game_message").innerHTML = "Verteile 1 Schluck";
-    }
-    else {
-        console.log("war falsch");
-        document.getElementById("game_message").innerHTML = "Trinke 1 Schluck";
-
-    }
-    //showCard();
-
+        karteSpeichern();
         karteZiehen();
         if (aktiverSpieler >= spieler) {
             aktiverSpieler = 1;
             naechsteRunde();
             round++;
-        } else {
+        }
+        else {
             aktiverSpieler++;
         }
-}
-    //tiefer
-function round2_2(){
-    karteSpeichern();
-    console.log("Runde 2 2");
-    let card1 = document.getElementById(`player${aktiverSpieler}_img${round}`).ariaLabel.match(/\d+/)[0];
-    let card2 = document.getElementById(`player${aktiverSpieler}_img${round - 1}`).ariaLabel.match(/\d+/)[0];
-    if (parseInt(card1) < parseInt(card2)) {
-        document.getElementById("game_message").innerHTML = "Verteile 1 Schluck"
-        console.log("war richtig");
-        console.log(document.getElementById(`player${aktiverSpieler}_img${round - 1}`).ariaLabel.match(/\d+/)[0], document.getElementById(`player${aktiverSpieler}_img${round}`).ariaLabel.match(/\d+/)[0]);
-    }
-    else {
-        document.getElementById("game_message").innerHTML = "Trinke 1 Schluck";
-        console.log("war faslch");
-    }
-    //showCard();
 
-    karteZiehen();
-    if (aktiverSpieler >= spieler) {
-        aktiverSpieler = 1;
-        naechsteRunde();
-        round++;
-    } else {
-        aktiverSpieler++;
-    }
+    });
+
+    btn2.addEventListener("click", () => {
+        if(red_cards.includes(deck[0])) {
+            document.getElementById("game_message").innerHTML = "Verteile 1 Schluck"
+        }
+        else {
+            document.getElementById("game_message").innerHTML = "Trinke 1 Schluck"
+        }
+        //showCard();
+        karteSpeichern();
+        karteZiehen();
+        if (aktiverSpieler >= spieler) {
+            aktiverSpieler = 1;
+            naechsteRunde();
+            round++;
+        }
+        else {
+            aktiverSpieler++;
+        }
+    });
+
 }
+
 //Höher tiefer
+
 //document.getElementById("player1_img1").ariaLabel.match(/\d+/)[0]
+function round2(){
+    if (round != 2) return;
+    console.log("Funktion 2");
+    let btn1 = document.getElementById("btn1"); //Höher
+    let btn2 = document.getElementById("btn2"); //Tiefer
+    console.log(deck);
+    btn1.addEventListener("click", () => {
+        //Ass, Bube, Dame, König muss noch überprüft werden
+        //document.getElementById("herz9").ariaLabel.match(/\d+/)[0]
+        if(document.getElementById(`player${aktiverSpieler}_img${round - 1}`).ariaLabel.match(/\d+/)[0] > document.getElementById(`player${aktiverSpieler}_img${round}`).ariaLabel.match(/\d+/)[0]) {
+            console.log(document.getElementById(`player${aktiverSpieler}_img${round - 1}`).ariaLabel.match(/\d+/)[0], document.getElementById(`player${aktiverSpieler}_img${round}`).ariaLabel.match(/\d+/)[0]);
+            document.getElementById("game_message").innerHTML = "Verteile 1 Schluck";
+        }
+        else {
+            document.getElementById("game_message").innerHTML = "Trinke 1 Schluck";
+        }
+        //showCard();
+        karteSpeichern();
+        karteZiehen();
+        if (aktiverSpieler >= spieler) {
+            aktiverSpieler = 1;
+            naechsteRunde();
+            round++;
+        }
+        else {
+            aktiverSpieler++;
+        }
+
+    });
+
+    btn2.addEventListener("click", () => {
+        if(document.getElementById(`player${aktiverSpieler}_img${round - 1}`).ariaLabel.match(/\d+/)[0] < document.getElementById(`player${aktiverSpieler}_img${round}`).ariaLabel.match(/\d+/)[0]) {
+            document.getElementById("game_message").innerHTML = "Verteile 1 Schluck"
+            console.log(document.getElementById(`player${aktiverSpieler}_img${round - 1}`).ariaLabel.match(/\d+/)[0], document.getElementById(`player${aktiverSpieler}_img${round}`).ariaLabel.match(/\d+/)[0]);
+        }
+        else {
+            document.getElementById("game_message").innerHTML = "Trinke 1 Schluck"
+        }
+        //showCard();
+        karteSpeichern();
+        karteZiehen();
+        if (aktiverSpieler >= spieler) {
+            aktiverSpieler = 1;
+            naechsteRunde();
+            round++;
+        }
+        else {
+            aktiverSpieler++;
+        }
+    });
+
+}
 
 function showCard() {
     let picture = document.createElement("img");
@@ -273,20 +270,20 @@ function karteSpeichern(){
     }
 }
 
-function naechsteRunde() {
+function naechsteRunde(){
     switch (round) {
         case 1:
-            document.getElementById("round").innerHTML = `Karte wählen | Runde: ${round + 1}`;
+            document.getElementById("round").innerHTML = `Karte wählen | Runde: ${round+1}`;
             document.getElementById("btn1").textContent = "Höher";
             document.getElementById("btn2").textContent = "Tiefer";
             break;
         case 2:
-            document.getElementById("round").innerHTML = `Karte wählen | Runde: ${round + 1}`;
+            document.getElementById("round").innerHTML = `Karte wählen | Runde: ${round+1}`;
             document.getElementById("btn1").textContent = "Innerhalb";
             document.getElementById("btn2").textContent = "Außerhalb";
             break;
         case 3:
-            document.getElementById("round").innerHTML = `Karte wählen | Runde: ${round + 1}`;
+            document.getElementById("round").innerHTML = `Karte wählen | Runde: ${round+1}`;
             document.getElementById("btn1").textContent = "Herz";
             document.getElementById("btn2").textContent = "Pik";
 
@@ -304,4 +301,3 @@ function naechsteRunde() {
             break;
     }
 }
-
