@@ -61,8 +61,10 @@ function game(){
 
 
 function eingabeÜberprüfen() {
-    let btn1 = document.getElementById("btn1"); //Schwarz
+    let btn1 = document.getElementById("btn1"); //Schwarz, //Höher, //Innerhalb
     let btn2 = document.getElementById("btn2");
+    let btn3 = document.getElementById("btn3");
+    let btn4 = document.getElementById("btn4");
 
     btn1.addEventListener("click", () => {
         if (round === 1) {
@@ -70,6 +72,12 @@ function eingabeÜberprüfen() {
         }
         else if (round === 2){
             round2_1();
+        }
+        else if (round === 3){
+            round3_1();
+        }
+        else if (round === 4) {
+            round4_1();
         }
 
     });
@@ -81,7 +89,23 @@ function eingabeÜberprüfen() {
         else if (round === 2){
             round2_2();
         }
+
+        else if (round === 3){
+            round3_2();
+        }
+        else if (round === 4) {
+            round4_2();
+        }
     });
+
+    btn3.addEventListener("click", () =>{
+        round4_3();
+    });
+
+    btn4.addEventListener("click", () =>{
+        round4_4();
+    })
+
 
 }
 
@@ -90,9 +114,7 @@ function eingabeÜberprüfen() {
 
 //Farbe        eventListener entfernen!
 function round1(){
-    if (round != 1) return;
-    let btn1 = document.getElementById("btn1"); //Schwarz
-    let btn2 = document.getElementById("btn2"); //Rot
+
     karteSpeichern();
     console.log(deck);
     if(black_cards.includes(deck[0])) {
@@ -196,6 +218,117 @@ function round2_2(){
 //Höher tiefer
 //document.getElementById("player1_img1").ariaLabel.match(/\d+/)[0]
 
+function round3_1(){
+    karteSpeichern();
+    console.log("Runde 3 1");
+    let card1 = document.getElementById(`player${aktiverSpieler}_img${round - 2}`).ariaLabel.match(/\d+/)[0];
+    let card2 = document.getElementById(`player${aktiverSpieler}_img${round - 1}`).ariaLabel.match(/\d+/)[0];
+        let card3 = parseInt(document.getElementById(`player${aktiverSpieler}_img${round}`).ariaLabel.match(/\d+/)[0]);
+        if(card3 > kartenSortieren_niedrig(card1, card2) && card3 <  kartenSortieren_hoch(card1, card2)){
+            document.getElementById("game_message").innerHTML = "Trinke 1 Schluck";
+        }
+        else {
+            document.getElementById("game_message").innerHTML = "Verteile 1 Schluck";
+        }
+    karteZiehen();
+    if (aktiverSpieler >= spieler) {
+        aktiverSpieler = 1;
+        naechsteRunde();
+        round++;
+    } else {
+        aktiverSpieler++;
+    }
+}
+
+function round3_2(){
+    karteSpeichern();
+    console.log("Runde 3 1");
+    let card1 = document.getElementById(`player${aktiverSpieler}_img${round - 2}`).ariaLabel.match(/\d+/)[0]; //11
+    let card2 = document.getElementById(`player${aktiverSpieler}_img${round - 1}`).ariaLabel.match(/\d+/)[0]; //8
+    let card3 = parseInt(document.getElementById(`player${aktiverSpieler}_img${round}`).ariaLabel.match(/\d+/)[0]); //5
+    if(card3 > kartenSortieren_niedrig(card1, card2) && card3 >  kartenSortieren_hoch(card1, card2) || card3 < kartenSortieren_niedrig(card1, card2) && card3 <  kartenSortieren_hoch(card1, card2)){
+        document.getElementById("game_message").innerHTML = "Verteile 1 Schluck";
+    }
+    else {
+        document.getElementById("game_message").innerHTML = "Trinke 1 Schluck";
+    }
+    karteZiehen();
+    if (aktiverSpieler >= spieler) {
+        aktiverSpieler = 1;
+        naechsteRunde();
+        round++;
+    }
+    else {
+        aktiverSpieler++;
+    }
+}
+
+function resetPlayer() {
+        if (aktiverSpieler >= spieler) {
+            aktiverSpieler = 1;
+            naechsteRunde();
+            round++;
+        } else {
+            aktiverSpieler++;
+        }
+    }
+
+//Herz
+function round4_1() {
+    karteSpeichern();
+    let card4 = document.getElementById(`player${aktiverSpieler}_img${round}`).ariaLabel.replace(/[0-9]/g, '');
+    if (card4 === "herz") {
+        document.getElementById("game_message").innerHTML = "Verteile 1 Schluck";
+    } else {
+        document.getElementById("game_message").innerHTML = "Trinke 1 Schluck";
+    }
+
+    karteZiehen();
+    resetPlayer();
+}
+
+function round4_2() {
+    karteSpeichern();
+    let card4 = document.getElementById(`player${aktiverSpieler}_img${round}`).ariaLabel.replace(/[0-9]/g, '');
+    if (card4 === "pik"){
+        document.getElementById("game_message").innerHTML = "Verteile 1 Schluck";
+    }
+    else {
+        document.getElementById("game_message").innerHTML = "Trinke 1 Schluck";
+    }
+    karteZiehen();
+    resetPlayer();
+}
+
+function round4_3() {
+    karteSpeichern();
+    let card4 = document.getElementById(`player${aktiverSpieler}_img${round}`).ariaLabel.replace(/[0-9]/g, '');
+    if (card4 === "kreuz"){
+        document.getElementById("game_message").innerHTML = "Verteile 1 Schluck";
+    }
+    else {
+        document.getElementById("game_message").innerHTML = "Trinke 1 Schluck";
+    }
+    karteZiehen();
+    resetPlayer();
+}
+
+function round4_4() {
+    karteSpeichern();
+    let card4 = document.getElementById(`player${aktiverSpieler}_img${round}`).ariaLabel.replace(/[0-9]/g, '');
+    if (card4 === "karo"){
+        document.getElementById("game_message").innerHTML = "Verteile 1 Schluck";
+    }
+    else {
+        document.getElementById("game_message").innerHTML = "Trinke 1 Schluck";
+    }
+    karteZiehen();
+    resetPlayer();
+}
+
+
+//document.getElementById(`player${aktiverSpieler - 1}_img${round}`).ariaLabel.replace(/[0-9]/g, '');
+
 function showCard() {
     let picture = document.createElement("img");
     picture.src = "/img/" + deck[0] + ".png";
@@ -289,14 +422,8 @@ function naechsteRunde() {
             document.getElementById("round").innerHTML = `Karte wählen | Runde: ${round + 1}`;
             document.getElementById("btn1").textContent = "Herz";
             document.getElementById("btn2").textContent = "Pik";
-
-            let btnKreuz = document.createElement("button");
-            btnKreuz.textContent = "Kreuz";
-            document.getElementById("buttons").appendChild(btnKreuz);
-
-            let btnKaro = document.createElement("button");
-            btnKaro.textContent = "Karo";
-            document.getElementById("buttons").appendChild(btnKaro);
+            document.getElementById("btn3").hidden = false;
+            document.getElementById("btn4").hidden = false;
 
             break;
         default:
@@ -305,3 +432,21 @@ function naechsteRunde() {
     }
 }
 
+    //nimmt die letzen beiden Karten und ordnet sie nach Größe (für Innerhalb außerhalb)
+function kartenSortieren_hoch(card1, card2){
+        if (card1 > card2) {
+            return card1;
+        }
+        else {
+            return card2;
+        }
+}
+
+function kartenSortieren_niedrig(card1, card2){
+    if (card1 < card2) {
+        return card1;
+    }
+    else {
+        return card2;
+    }
+}
