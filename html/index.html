@@ -3,8 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Busfahrer</title>
+    <script src="../js/game.js"></script>
 </head>
 <body>
-<h1>Jiggo</h1>
+<h1 id="round">Karte wählen | Runde: </h1>
+<div id="buttons">
+    <button type="submit" id="btn1">Schwarz</button>
+    <button type="submit" id="btn2">Rot</button>
+    <button type="submit" id="btn3" hidden>Kreuz</button>
+    <button type="submit" id="btn4" hidden>Karo</button>
+    <button type="submit" id="shufflecards" onclick="shufflecards()">Shuffle</button>
+    <button type="submit" id="checkCard" onclick="checkCard()">Check</button>
+</div>
+<p id="game_message"></p>
+<p id="spieler"></p>
+<link rel="stylesheet" href="../css/game.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+<h1>Jiggo Runde 1: Rot oder Schwarz</h1>
+<p>Ziehe deine erste Karte! </p>
+
 </body>
 </html>
