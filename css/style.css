@@ -1,1 +1,21 @@
 
+body {
+    background: #3498db;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+body {
+    background: #3498db;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+.busfahrer-logo h1 {
+    text-align: center;
+    padding: 20% 0;
+}
+
+.container btn {
+    text-align: center;
+    padding: 20% 0;
+}
