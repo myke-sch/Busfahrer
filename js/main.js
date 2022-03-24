@@ -271,20 +271,20 @@ function karteSpeichern(){
     }
 }
 
-function naechsteRunde(){
+function naechsteRunde() {
     switch (round) {
         case 1:
-            document.getElementById("round").innerHTML = `Karte wählen | Runde: ${round+1}`;
+            document.getElementById("round").innerHTML = `Karte wählen | Runde: ${round + 1}`;
             document.getElementById("btn1").textContent = "Höher";
             document.getElementById("btn2").textContent = "Tiefer";
             break;
         case 2:
-            document.getElementById("round").innerHTML = `Karte wählen | Runde: ${round+1}`;
+            document.getElementById("round").innerHTML = `Karte wählen | Runde: ${round + 1}`;
             document.getElementById("btn1").textContent = "Innerhalb";
             document.getElementById("btn2").textContent = "Außerhalb";
             break;
         case 3:
-            document.getElementById("round").innerHTML = `Karte wählen | Runde: ${round+1}`;
+            document.getElementById("round").innerHTML = `Karte wählen | Runde: ${round + 1}`;
             document.getElementById("btn1").textContent = "Herz";
             document.getElementById("btn2").textContent = "Pik";
 
