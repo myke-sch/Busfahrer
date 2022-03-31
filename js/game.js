@@ -1,5 +1,4 @@
 let round = 1;
-let knopfgedrueckt = 0;
 let karten_deck = ["karo7", "karo8","karo9","karo10", "karo11", "karo12", "karo13", "karo14", "Kreuz7",
     "kreuz8", "kreuz9", "kreuz10", "kreuz11", "kreuz12", "kreuz13", "kreuz14", "herz7", "herz8", "herz9", "herz10", "herz11",
     "herz12", "herz13", "herz14", "pik7", "pik8", "pik9", "pik10", "pik11", "pik12", "pik13", "pik14"];
@@ -16,6 +15,10 @@ let deck_size = 32;
 let spieler = 6;
 let rundenCounter = 0;
 let aktiverSpieler = 1;
+
+let spielerKarten = [
+    []
+];
 
 window.onload = function() {
     document.getElementById("round").innerHTML += round;
@@ -143,7 +146,7 @@ function round1(){
         document.getElementById("game_message").innerHTML = "Trinke 1 Schluck"
     }
         //showCard();
-karteSpeichern();
+    karteSpeichern();
     karteZiehen();
     if (aktiverSpieler >= spieler) {
         aktiverSpieler = 1;
@@ -355,6 +358,7 @@ function anzahlSpieler() {
 function karteSpeichern(){
     switch (aktiverSpieler){
         case 1:
+            spielerKarten[aktiverSpieler - 1].push(deck[0]);
             let spieler_karte = document.createElement("img");
 
             spieler_karte.src = "/img/" + deck[0] + ".png";
@@ -363,6 +367,7 @@ function karteSpeichern(){
             document.getElementById("player1").appendChild(spieler_karte);
             break;
         case 2:
+            spielerKarten[aktiverSpieler - 1].push(deck[0]);
             let spieler_karte2 = document.createElement("img");
 
             spieler_karte2.src = "/img/" + deck[0] + ".png";
@@ -372,6 +377,7 @@ function karteSpeichern(){
             document.getElementById("player2").appendChild(spieler_karte2);
             break;
         case 3:
+            spielerKarten[aktiverSpieler - 1].push(deck[0]);
             let spieler_karte3 = document.createElement("img");
             spieler_karte3.ariaLabel = deck[0];
             spieler_karte3.src = "/img/" + deck[0] + ".png";
@@ -379,6 +385,7 @@ function karteSpeichern(){
             document.getElementById("player3").appendChild(spieler_karte3);
             break;
         case 4:
+            spielerKarten[aktiverSpieler - 1].push(deck[0]);
             let spieler_karte4 = document.createElement("img");
             spieler_karte4.ariaLabel = deck[0];
             spieler_karte4.src = "/img/" + deck[0] + ".png";
@@ -387,6 +394,7 @@ function karteSpeichern(){
             break;
 
         case 5:
+            spielerKarten[aktiverSpieler - 1].push(deck[0]);
             let spieler_karte5 = document.createElement("img");
             spieler_karte5.ariaLabel = deck[0];
             spieler_karte5.src = "/img/" + deck[0] + ".png";
@@ -395,6 +403,7 @@ function karteSpeichern(){
             break;
 
         case 6:
+            spielerKarten[aktiverSpieler - 1].push(deck[0]);
             let spieler_karte6 = document.createElement("img");
             spieler_karte6.ariaLabel = deck[0];
             spieler_karte6.src = "/img/" + deck[0] + ".png";
