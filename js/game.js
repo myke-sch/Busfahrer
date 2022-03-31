@@ -16,6 +16,17 @@ let spieler = 6;
 let rundenCounter = 0;
 let aktiverSpieler = 1;
 
+let spielerKarten = [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+
+];
+
+
 window.onload = function() {
     document.getElementById("round").innerHTML += round;
     deck = karten_mischen(karten_deck);
@@ -69,16 +80,15 @@ function eingabeÜberprüfen() {
     btn1.addEventListener("click", () => {
         if (round === 1) {
             round1();
-        }
-        else if (round === 2){
+        } else if (round === 2) {
             round2_1();
-        }
-        else if (round === 3){
+        } else if (round === 3) {
             round3_1();
-        }
-        else if (round === 4) {
+        } else if (round === 4) {
             round4_1();
         }
+        localStorage.clear();
+        localStorage.setItem("karten", JSON.stringify(deck));
 
     });
 
@@ -96,14 +106,20 @@ function eingabeÜberprüfen() {
         else if (round === 4) {
             round4_2();
         }
+        localStorage.clear();
+        localStorage.setItem("karten", JSON.stringify(deck));
     });
 
     btn3.addEventListener("click", () =>{
         round4_3();
+        localStorage.clear();
+        localStorage.setItem("karten", JSON.stringify(deck));
     });
 
     btn4.addEventListener("click", () =>{
         round4_4();
+        localStorage.clear();
+        localStorage.setItem("karten", JSON.stringify(deck));
     })
 
 
@@ -357,6 +373,8 @@ function anzahlSpieler() {
 function karteSpeichern(){
     switch (aktiverSpieler){
         case 1:
+            console.log(aktiverSpieler - 1);
+            spielerKarten[aktiverSpieler - 1].push(deck[0]);
             let spieler_karte = document.createElement("img");
 
             spieler_karte.src = "/img/" + deck[0] + ".png";
@@ -365,6 +383,8 @@ function karteSpeichern(){
             document.getElementById("player1").appendChild(spieler_karte);
             break;
         case 2:
+            console.log(aktiverSpieler - 1);
+            spielerKarten[aktiverSpieler - 1].push(deck[0]);
             let spieler_karte2 = document.createElement("img");
 
             spieler_karte2.src = "/img/" + deck[0] + ".png";
@@ -374,6 +394,7 @@ function karteSpeichern(){
             document.getElementById("player2").appendChild(spieler_karte2);
             break;
         case 3:
+            spielerKarten[aktiverSpieler - 1].push(deck[0]);
             let spieler_karte3 = document.createElement("img");
             spieler_karte3.ariaLabel = deck[0];
             spieler_karte3.src = "/img/" + deck[0] + ".png";
@@ -381,6 +402,7 @@ function karteSpeichern(){
             document.getElementById("player3").appendChild(spieler_karte3);
             break;
         case 4:
+            spielerKarten[aktiverSpieler - 1].push(deck[0]);
             let spieler_karte4 = document.createElement("img");
             spieler_karte4.ariaLabel = deck[0];
             spieler_karte4.src = "/img/" + deck[0] + ".png";
@@ -389,6 +411,7 @@ function karteSpeichern(){
             break;
 
         case 5:
+            spielerKarten[aktiverSpieler - 1].push(deck[0]);
             let spieler_karte5 = document.createElement("img");
             spieler_karte5.ariaLabel = deck[0];
             spieler_karte5.src = "/img/" + deck[0] + ".png";
@@ -397,6 +420,7 @@ function karteSpeichern(){
             break;
 
         case 6:
+            spielerKarten[aktiverSpieler - 1].push(deck[0]);
             let spieler_karte6 = document.createElement("img");
             spieler_karte6.ariaLabel = deck[0];
             spieler_karte6.src = "/img/" + deck[0] + ".png";

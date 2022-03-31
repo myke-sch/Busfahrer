@@ -1,8 +1,10 @@
-let karten_deck = ["karo7", "karo8","karo9","karo10", "karoB", "karoD", "karoK", "karoA", "Kreuz7",
-    "kreuz8", "kreuz9", "kreuz10", "kreuzB", "kreuzD", "kreuzK", "kreuzA", "herz7", "herz8", "herz9", "herz10", "herzB",
-    "herzD", "herzK", "herzA", "pik7", "pik8", "pik9", "pik10", "pikB", "pikD", "pikK", "pikA"];
+let karten_deck = ["karo7", "karo8","karo9","karo10", "karo11", "karo12", "karo13", "karo14", "Kreuz7",
+    "kreuz8", "kreuz9", "kreuz10", "kreuz11", "kreuz12", "kreuz13", "kreuz14", "herz7", "herz8", "herz9", "herz10", "herz11",
+    "herz12", "herz13", "herz14", "pik7", "pik8", "pik9", "pik10", "pik11", "pik12", "pik13", "pik14"];
 
 console.log(deck_import);
+var kartenGeladen = false;
+
 
 //import deck from './main';
 
@@ -10,36 +12,12 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function karten_mischen(deck) {  //Fisher-Yates-Verfahren
-    let deck_size_counter = deck.length;
-
-    while (deck_size_counter > 0){
-        let karte = Math.floor(Math.random() * deck_size_counter);
-
-        deck_size_counter--;
-
-        let temp = deck[deck_size_counter];
-        deck[deck_size_counter] = deck[karte]
-        deck[karte] = temp;
-    }
-
-    return deck;
-
-}
-
-function changePic() {
-
-    //deck = karten_mischen(karten_deck)
-
-    console.log(deck);
-
-}
-
 function pyramideZiehen() {
     let reihePyramide = 0;
     console.log(JSON.parse(localStorage.getItem("karten")));
     deck = JSON.parse(localStorage.getItem("karten"));
     console.log(deck);
+    console.log(spielerKarten);
     for (let i = 9; i >= 0; i--) {
         let picture = document.createElement("img");
         picture.src = "/img/" + "back" + ".png";
@@ -68,17 +46,20 @@ function pyramideZiehen() {
             console.log(i);
         }
     }
-    deck.shift();
     localStorage.clear();
     localStorage.setItem("karten", JSON.stringify(deck));
+    kartenGeladen = true;
 }
+
 
 function flipCart(clicked_id) {
     let karte = document.getElementById(clicked_id);
     //console.log(clicked_id);
     //console.log(karte);
     karte.style.transitionDuration = "0.75s";
-
+    if (kartenGeladen) {
+        deck.shift();
+    }
     async function flip() {
         karte.style.transform = "rotateY(-90deg)";
         await sleep(1000);
