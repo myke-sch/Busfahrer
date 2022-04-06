@@ -25,6 +25,7 @@ let spielerKarten = [
     [],
 
 ];
+let spielerKartenJSON;
 
 
 window.onload = function() {
@@ -89,6 +90,7 @@ function eingabeÜberprüfen() {
         }
         localStorage.clear();
         localStorage.setItem("karten", JSON.stringify(deck));
+
 
     });
 
@@ -375,6 +377,7 @@ function karteSpeichern(){
         case 1:
             console.log(aktiverSpieler - 1);
             spielerKarten[aktiverSpieler - 1].push(deck[0]);
+            spielerKartenJSON = JSON.stringify(spielerKarten);
             let spieler_karte = document.createElement("img");
 
             spieler_karte.src = "/img/" + deck[0] + ".png";
@@ -385,6 +388,7 @@ function karteSpeichern(){
         case 2:
             console.log(aktiverSpieler - 1);
             spielerKarten[aktiverSpieler - 1].push(deck[0]);
+            spielerKartenJSON = JSON.stringify(spielerKarten);
             let spieler_karte2 = document.createElement("img");
 
             spieler_karte2.src = "/img/" + deck[0] + ".png";
@@ -395,6 +399,7 @@ function karteSpeichern(){
             break;
         case 3:
             spielerKarten[aktiverSpieler - 1].push(deck[0]);
+            spielerKartenJSON = JSON.stringify(spielerKarten);
             let spieler_karte3 = document.createElement("img");
             spieler_karte3.ariaLabel = deck[0];
             spieler_karte3.src = "/img/" + deck[0] + ".png";
@@ -403,6 +408,7 @@ function karteSpeichern(){
             break;
         case 4:
             spielerKarten[aktiverSpieler - 1].push(deck[0]);
+            spielerKartenJSON = JSON.stringify(spielerKarten);
             let spieler_karte4 = document.createElement("img");
             spieler_karte4.ariaLabel = deck[0];
             spieler_karte4.src = "/img/" + deck[0] + ".png";
@@ -412,6 +418,7 @@ function karteSpeichern(){
 
         case 5:
             spielerKarten[aktiverSpieler - 1].push(deck[0]);
+            spielerKartenJSON = JSON.stringify(spielerKarten);
             let spieler_karte5 = document.createElement("img");
             spieler_karte5.ariaLabel = deck[0];
             spieler_karte5.src = "/img/" + deck[0] + ".png";
@@ -421,6 +428,7 @@ function karteSpeichern(){
 
         case 6:
             spielerKarten[aktiverSpieler - 1].push(deck[0]);
+            spielerKartenJSON = JSON.stringify(spielerKarten);
             let spieler_karte6 = document.createElement("img");
             spieler_karte6.ariaLabel = deck[0];
             spieler_karte6.src = "/img/" + deck[0] + ".png";
