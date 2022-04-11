@@ -1,14 +1,13 @@
 let round = 1;
-let karten_deck = ["karo7", "karo8","karo9","karo10", "karo11", "karo12", "karo13", "karo14", "Kreuz7",
-    "kreuz8", "kreuz9", "kreuz10", "kreuz11", "kreuz12", "kreuz13", "kreuz14", "herz7", "herz8", "herz9", "herz10", "herz11",
-    "herz12", "herz13", "herz14", "pik7", "pik8", "pik9", "pik10", "pik11", "pik12", "pik13", "pik14"];
+let karten_deck = ["karo6" ,"karo7", "karo8","karo9","karo10", "karo11", "karo12", "karo13", "karo14", "kreuz6", "kreuz7",
+    "kreuz8", "kreuz9", "kreuz10", "kreuz11", "kreuz12", "kreuz13", "kreuz14", "herz6", "herz7", "herz8", "herz9", "herz10", "herz11",
+    "herz12", "herz13", "herz14","pik6", "pik7", "pik8", "pik9", "pik10", "pik11", "pik12", "pik13", "pik14"];
 
 
-
-let red_cards = ["karo7", "karo8","karo9","karo10", "karo11", "karo12", "karo13", "karo14", "herz7", "herz8", "herz9", "herz10", "herz11",
+let red_cards = ["karo6" ,"karo7", "karo8","karo9","karo10", "karo11", "karo12", "karo13", "karo14", "herz6", "herz7", "herz8", "herz9", "herz10", "herz11",
     "herz12", "herz13", "herz14"];
-let black_cards = ["Kreuz7",
-    "kreuz8", "kreuz9", "kreuz10", "kreuz11", "kreuz12", "kreuz13", "kreuz14", "pik7", "pik8", "pik9", "pik10", "pik11", "pik12", "pik13", "pik14"];
+let black_cards = ["kreuz6", "kreuz7",
+    "kreuz8", "kreuz9", "kreuz10", "kreuz11", "kreuz12", "kreuz13", "kreuz14", "pik6", "pik7", "pik8", "pik9", "pik10", "pik11", "pik12", "pik13", "pik14"];
 
 let deck = [];
 let deck_size = 32;
@@ -90,6 +89,7 @@ function eingabeÜberprüfen() {
         }
         localStorage.clear();
         localStorage.setItem("karten", JSON.stringify(deck));
+        localStorage.setItem("kartenSpeiler", JSON.stringify(spielerKarten));
 
 
     });
@@ -110,18 +110,21 @@ function eingabeÜberprüfen() {
         }
         localStorage.clear();
         localStorage.setItem("karten", JSON.stringify(deck));
+        localStorage.setItem("kartenSpeiler", JSON.stringify(spielerKarten));
     });
 
     btn3.addEventListener("click", () =>{
         round4_3();
         localStorage.clear();
         localStorage.setItem("karten", JSON.stringify(deck));
+        localStorage.setItem("kartenSpeiler", JSON.stringify(spielerKarten));
     });
 
     btn4.addEventListener("click", () =>{
         round4_4();
         localStorage.clear();
         localStorage.setItem("karten", JSON.stringify(deck));
+        localStorage.setItem("kartenSpeiler", JSON.stringify(spielerKarten));
     })
 
 
@@ -461,6 +464,10 @@ function naechsteRunde() {
         default:
             document.getElementById("round").innerHTML = `Runde vorbei`;
             break;
+            document.getElementById("btn1").disabled = "true";
+            document.getElementById("btn2").disabled = "true";
+            document.getElementById("btn3").disabled = "true";
+            document.getElementById("btn4").disabled = "true";
     }
 }
 
