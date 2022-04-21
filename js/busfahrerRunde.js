@@ -33,6 +33,9 @@ function karten_mischen(deck) {  //Fisher-Yates-Verfahren
 }
 
 function reihenLegen(){
+    document.getElementById("btn1").disabled = false;
+    document.getElementById("btn2").disabled = false;
+    document.getElementById("btn3").disabled = false;
     deck = karten_mischen(karten_deck);
     for (let i = 10; i >= 2; i = i - 2) {
         let picture = document.createElement("img");
@@ -102,7 +105,7 @@ function eingabeUeberpruefen(){
     let btn3 = document.getElementById("btn3");//Gleich
 
     btn1.addEventListener("click", () => {
-        if (document.getElementById(parseInt(aktuelleKarte)).ariaLabel.match(/\d+/)[0] > document.getElementById(parseInt(aktuelleKarte) + 1).ariaLabel.match(/\d+/)[0]) {
+        if (parseInt(document.getElementById(parseInt(aktuelleKarte)).ariaLabel.match(/\d+/)[0]) < parseInt(document.getElementById(parseInt(aktuelleKarte) + 1).ariaLabel.match(/\d+/)[0])) {
             document.getElementById("message").innerHTML = "Stark";
             gewinner();
         }
@@ -114,7 +117,7 @@ function eingabeUeberpruefen(){
     });
 
     btn2.addEventListener("click", () => {
-        if (document.getElementById(parseInt(aktuelleKarte)).ariaLabel.match(/\d+/)[0] < document.getElementById(parseInt(aktuelleKarte) + 1).ariaLabel.match(/\d+/)[0]) {
+        if (parseInt(document.getElementById(parseInt(aktuelleKarte)).ariaLabel.match(/\d+/)[0]) > parseInt(document.getElementById(parseInt(aktuelleKarte) + 1).ariaLabel.match(/\d+/)[0])) {
             document.getElementById("message").innerHTML = "Stark";
             gewinner();
         }
@@ -126,7 +129,7 @@ function eingabeUeberpruefen(){
     });
 
     btn3.addEventListener("click", () => {
-        if (document.getElementById(parseInt(aktuelleKarte)).ariaLabel.match(/\d+/)[0] === document.getElementById(parseInt(aktuelleKarte) + 1).ariaLabel.match(/\d+/)[0]) {
+        if (parseInt(document.getElementById(aktuelleKarte).ariaLabel.match(/\d+/)[0]) === parseInt(document.getElementById(parseInt(aktuelleKarte + 1)).ariaLabel.match(/\d+/)[0])) {
             document.getElementById("message").innerHTML = "Stark";
             gewinner();
         }
@@ -139,12 +142,21 @@ function eingabeUeberpruefen(){
 }
 
 function resetSpiel(){
-    document.getElementById("message").innerText = `Ihr müsst ${aktuelleKarte} Schlücke trinken`;
-    aktuelleKarte = -1;
-    let myNode = document.getElementById("karten");
-    myNode.innerHTML = '';
 
-    reihenLegen();
+
+    document.getElementById("message").innerText = `Ihr müsst ${aktuelleKarte} Schlücke trinken`;
+
+    document.getElementById("btn1").disabled = "true";
+    document.getElementById("btn2").disabled = "true";
+    document.getElementById("btn3").disabled = "true";
+
+    setTimeout(() => {
+        let myNode = document.getElementById("karten");
+        myNode.innerHTML = '';
+        aktuelleKarte = 0;
+        reihenLegen();
+    }, 3000);
+
 
 }
 

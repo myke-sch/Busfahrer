@@ -464,10 +464,10 @@ function naechsteRunde() {
         default:
             document.getElementById("round").innerHTML = `Runde vorbei`;
             break;
-            document.getElementById("btn1").disabled = "true";
-            document.getElementById("btn2").disabled = "true";
-            document.getElementById("btn3").disabled = "true";
-            document.getElementById("btn4").disabled = "true";
+            document.getElementById("btn1").disabled = true;
+            document.getElementById("btn2").disabled = true;
+            document.getElementById("btn3").disabled = true;
+            document.getElementById("btn4").disabled = true;
     }
 }
 
