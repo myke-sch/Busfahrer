@@ -1,13 +1,13 @@
 let round = 1;
 let karten_deck = ["karo6" ,"karo7", "karo8","karo9","karo10", "karo11", "karo12", "karo13", "karo14", "kreuz6", "kreuz7",
     "kreuz8", "kreuz9", "kreuz10", "kreuz11", "kreuz12", "kreuz13", "kreuz14", "herz6", "herz7", "herz8", "herz9", "herz10", "herz11",
-    "herz12", "herz13", "herz14","pik6", "pik7", "pik8", "pik9", "pik10", "pik11", "pik12", "pik13", "pik14"];
+    "herz12", "herz13", "herz14","pik6", "pik7", "pik8", "pik9", "pik10", "pik11", "pik12", "pik13", "pik14"]; //komplettes Kartendeck, 14 - Ass, 13 - König, 12 - Könging, 11 - Bube
 
 
 let red_cards = ["karo6" ,"karo7", "karo8","karo9","karo10", "karo11", "karo12", "karo13", "karo14", "herz6", "herz7", "herz8", "herz9", "herz10", "herz11",
-    "herz12", "herz13", "herz14"];
+    "herz12", "herz13", "herz14"]; //Kartendeck nur rote Karten
 let black_cards = ["kreuz6", "kreuz7",
-    "kreuz8", "kreuz9", "kreuz10", "kreuz11", "kreuz12", "kreuz13", "kreuz14", "pik6", "pik7", "pik8", "pik9", "pik10", "pik11", "pik12", "pik13", "pik14"];
+    "kreuz8", "kreuz9", "kreuz10", "kreuz11", "kreuz12", "kreuz13", "kreuz14", "pik6", "pik7", "pik8", "pik9", "pik10", "pik11", "pik12", "pik13", "pik14"]; //Kartendeck nur schwarze Karten
 
 let deck = [];
 let deck_size = 32;
@@ -23,11 +23,11 @@ let spielerKarten = [
     [],
     [],
 
-];
-let spielerKartenJSON;
+]; //leeres 2d Array um Karten später zu speichern und Spieler zuzordnen
+let spielerKartenJSON; //Variable um "spielerKarten" in JSON Format umzuwandeln, um es danach zu speichern
 
 
-window.onload = function() {
+window.onload = function() { //läd wichtige Funktionen, nötig damit keine Fehler entstehen
     document.getElementById("round").innerHTML += round;
     deck = karten_mischen(karten_deck);
     eingabeÜberprüfen();
@@ -58,17 +58,7 @@ function shufflecards(){
     console.log(karten_mischen(karten_deck));
 
 }
-function game(){
 
-    if (round == 1)  {
-        round1();
-    }
-    else if (round == 2) {
-        round2();
-    }
-
-
-}
 
 
 function eingabeÜberprüfen() {
@@ -76,6 +66,9 @@ function eingabeÜberprüfen() {
     let btn2 = document.getElementById("btn2");
     let btn3 = document.getElementById("btn3");
     let btn4 = document.getElementById("btn4");
+    //alle Knöpfe Variable zuweisen
+
+
 
     btn1.addEventListener("click", () => {
         if (round === 1) {
@@ -90,7 +83,7 @@ function eingabeÜberprüfen() {
         localStorage.clear();
         localStorage.setItem("karten", JSON.stringify(deck));
         localStorage.setItem("kartenSpeiler", JSON.stringify(spielerKarten));
-
+        //Speichern der Spielerkarten, um es in der nächsten Runde zu verwenden
 
     });
 
@@ -159,7 +152,7 @@ function round1(){
     }
 
 
-    if(red_cards.includes(deck[0])) {
+    if(red_cards.includes(deck[0])) { //überprüft ob im Array red_cards die oberste Karte vorhanden ist
             document.getElementById("game_message").innerHTML = "Verteile 1 Schluck"
     }
     else {
@@ -168,7 +161,7 @@ function round1(){
         //showCard();
 karteSpeichern();
     karteZiehen();
-    if (aktiverSpieler >= spieler) {
+    if (aktiverSpieler >= spieler) { //überprüft ob alle Spieler in der Runde dran waren
         aktiverSpieler = 1;
         naechsteRunde();
         round++;
@@ -284,7 +277,7 @@ function round3_2(){
     }
 }
 
-function resetPlayer() {
+function resetPlayer() { //wenn letzter Spieler dran war wird aktiver Spieler wieder auf 1 gesetzt und der 1. Spieler ist mit der nächsten Runde dran
         if (aktiverSpieler >= spieler) {
             aktiverSpieler = 1;
             naechsteRunde();
