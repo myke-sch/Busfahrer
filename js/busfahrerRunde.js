@@ -166,7 +166,6 @@ function resetSpiel(){ //wenn ein Spieler falsch gewählt hat wird das Spiel neu
         let myNode = document.getElementById(i.toString());
         myNode.innerHTML = '';
     }
-
     reihenLegen();
 
 }
