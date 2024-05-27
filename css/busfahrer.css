@@ -1,0 +1,206 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+.v32_9 {
+  width: 100%;
+  height: 1080px;
+
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.busfahrer5 {
+  width: 252px;
+  height: 336px;
+
+  opacity: 1;
+  position: absolute;
+  top: 709px;
+  left: 834px;
+  overflow: hidden;
+}
+.busfahrer3 {
+  width: 252px;
+  height: 336px;
+
+  opacity: 1;
+  position: absolute;
+  top: 709px;
+  left: 1126px;
+  overflow: hidden;
+}
+.busfahrer1 {
+  width: 252px;
+  height: 336px;
+
+  opacity: 1;
+  position: absolute;
+  top: 709px;
+  left: 1418px;
+  overflow: hidden;
+}
+.busfahrer2 {
+  width: 252px;
+  height: 336px;
+
+  opacity: 1;
+  position: absolute;
+  top: 331px;
+  left: 1418px;
+  overflow: hidden;
+}
+.busfahrer4 {
+  width: 252px;
+  height: 336px;
+
+  opacity: 1;
+  position: absolute;
+  top: 331px;
+  left: 1126px;
+  overflow: hidden;
+}
+.busfahrer6 {
+  width: 252px;
+  height: 336px;
+
+  opacity: 1;
+  position: absolute;
+  top: 331px;
+  left: 834px;
+  overflow: hidden;
+}
+.busfahrer8 {
+  width: 252px;
+  height: 336px;
+
+  opacity: 1;
+  position: absolute;
+  top: 331px;
+  left: 542px;
+  overflow: hidden;
+}
+.busfahrer7 {
+  width: 252px;
+  height: 336px;
+
+  opacity: 1;
+  position: absolute;
+  top: 709px;
+  left: 542px;
+  overflow: hidden;
+}
+.busfahrer10 {
+  width: 252px;
+  height: 336px;
+
+  opacity: 1;
+  position: absolute;
+  top: 331px;
+  left: 250px;
+  overflow: hidden;
+}
+.busfahrer9 {
+  width: 252px;
+  height: 336px;
+
+  opacity: 1;
+  position: absolute;
+  top: 709px;
+  left: 250px;
+  overflow: hidden;
+}
+.v32_11 {
+  width: 376px;
+  color: black;
+  position: absolute;
+  top: 45px;
+  left: 772px;
+  font-family: Inter;
+  font-weight: Bold;
+  font-size: 40px;
+  opacity: 1;
+  text-align: left;
+}
+.btn_hoeher {
+  width: 391px;
+  height: 112px;
+  background: rgba(255,198,38,1);
+  opacity: 1;
+  position: absolute;
+  top: 157px;
+  left: 324px;
+  border-top-left-radius: 45px;
+  border-top-right-radius: 45px;
+  border-bottom-left-radius: 45px;
+  border-bottom-right-radius: 45px;
+  overflow: hidden;
+}
+.btn_tiefer {
+  width: 391px;
+  height: 112px;
+  background: rgba(255,198,38,1);
+  opacity: 1;
+  position: absolute;
+  top: 156px;
+  left: 773px;
+  border-top-left-radius: 45px;
+  border-top-right-radius: 45px;
+  border-bottom-left-radius: 45px;
+  border-bottom-right-radius: 45px;
+  overflow: hidden;
+}
+.btn_gleich {
+  width: 391px;
+  height: 112px;
+  background: rgba(255,198,38,1);
+  opacity: 1;
+  position: absolute;
+  top: 156px;
+  left: 1222px;
+  border-top-left-radius: 45px;
+  border-top-right-radius: 45px;
+  border-bottom-left-radius: 45px;
+  border-bottom-right-radius: 45px;
+  overflow: hidden;
+}
+.v31_28 {
+  width: 277px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 178px;
+  left: 871px;
+  font-family: Inter;
+  font-weight: Bold;
+  font-size: 64px;
+  opacity: 1;
+  text-align: left;
+}
+.v31_29 {
+  width: 277px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 178px;
+  left: 1312px;
+  font-family: Inter;
+  font-weight: Bold;
+  font-size: 64px;
+  opacity: 1;
+  text-align: left;
+}
+.v31_30 {
+  width: 277px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 178px;
+  left: 422px;
+  font-family: Inter;
+  font-weight: Bold;
+  font-size: 64px;
+  opacity: 1;
+  text-align: left;
+}
